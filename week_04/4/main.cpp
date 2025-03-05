@@ -1,29 +1,19 @@
 #include <iostream>
-#include "vector.hpp"
+#include <cmath>
 
-template <class T>
-void print(const Vector<T> &vec) {
-	for (std::size_t i = 0; i < vec.Size(); ++i) {
-		std::cout << vec.Get(i) << " ";
-	}
-	std::cout << std::endl;
-}
+#include "generator.hpp"
 
 int main() {
-	Vector<int> vec;
-	vec.Push(10);
-	vec.Push(9);
-	vec.Push(8);
-	vec.Push(7);
-	vec.Push(6);
+	Generator<int> nats(0, [](int x) -> int { return x + 1; });
+	std::cout << nats.next() << std::endl;	   // 0
+	std::cout << nats.next() << std::endl;	   // 1
+	std::cout << nats.next() << std::endl;	   // 2
 
-	int arr[] = {5, 4, 3, 2, 1};
-	vec.Push(arr, 5);
-
-	print(vec);
-
-	Vector<int> sub = vec.Subvec(2, 8);
-	print(sub);
-	sub.Sort(std::less<int>());
-	print(sub);
+	Generator<double> rand(0.5, [](double x) -> double {
+		x = std::abs(std::sin(x * 123872.9898) * 43758.5453 + 1.2315);
+		return x - (int)x;
+	});
+	for (int i = 0; i < 100; ++i) {
+		std::cout << rand.next() << std::endl;
+	}
 }

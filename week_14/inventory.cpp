@@ -10,7 +10,7 @@ enum class AttackType : int {
 	PHYSICAL,
 	FIRE,
 	WATER,
-	LIGHTNINg,
+	LIGHTNING,
 	HOLY,
 
 	COUNT
@@ -120,7 +120,7 @@ class Inventory : public std::vector<Item *> {
 			i->serialize(out);
 		}
 	}
-	
+
 	void deserialize(std::istream &in) {
 		std::size_t size;
 		in.read((char*) &size, sizeof(std::size_t));
