@@ -3,14 +3,14 @@
 
 ## [1️⃣](week_01/) Преговор, template, function pointer
 ## [2️⃣](week_02/) Enum, class, методи
-## [3️⃣](week_03/) RAII, Big 4
+## [3️⃣](week_03/) RAII, Big 4, 0/3 Rule
 ## [4️⃣](week_04/) static, std::function, Разделна Компилация
 ## [5️⃣](week_05/) Динамичен Mасив
 ## [6️⃣](week_06/) Oператори
 ## [7️⃣](week_07/) Итератори
 ## [8️⃣](week_08/) Двоични файлове
 ## [9️⃣](week_09/) Unit Testing
-## [1️⃣0️⃣](week_10/) Move Semantics (Big 6)
+## [1️⃣0️⃣](week_10/) Move Semantics (Big 6, 0/3/5 Rule)
 ## [1️⃣1️⃣](week_11/) Наследяване
 ## [1️⃣2️⃣](week_12/) Виртуални методи и още наследяване
 ## [1️⃣3️⃣](week_13/) Изключения (exceptions)

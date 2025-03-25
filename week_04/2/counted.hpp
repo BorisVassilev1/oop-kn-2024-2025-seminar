@@ -7,6 +7,9 @@ class Counted {
 
 	~Counted() { --count; }
 
+	Counted(const Counted &) = delete;
+	Counted operator=(const Counted &) = delete;
+
    private:
 	static std::size_t count;
 
