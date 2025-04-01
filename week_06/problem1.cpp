@@ -18,17 +18,19 @@ struct Vector2 {
 		return phi1 < phi2;
 	}
 
-	Vector2 &operator*=(float r) {
-		this->x *= r;
-		this->y *= r;
-		return *this;
-	}
+	Vector2 &operator+=(const Vector2 &other) { x += other.x; y += other.y; return *this; }
+	Vector2 &operator-=(const Vector2 &other) { x -= other.x; y -= other.y; return *this; }
 
 	Vector2 operator*(float r) const { return Vector2(r * x, r * y); }
 	Vector2 operator+(const Vector2 &other) const { return Vector2(x + other.x, y + other.y); }
 	Vector2 operator-(const Vector2 &other) const { return Vector2(x - other.x, y - other.y); }
 	Vector2 operator*(const Vector2 &other) const { return Vector2(x * other.x, y * other.y); }
 	Vector2 operator/(const Vector2 &other) const { return Vector2(x / other.x, y / other.y); }
+
+	Vector2 &operator+=(double v) { x += v; y += v; return *this; }
+	Vector2 &operator-=(double v) { x -= v; y -= v; return *this; }
+	Vector2 &operator*=(double v) { x *= v; y *= v; return *this; }
+	Vector2 &operator/=(double v) { x /= v; y /= v; return *this; }
 
 	float lenSquared() const { return dot(*this, *this); }
 	float len() const { return std::sqrt(lenSquared()); }
