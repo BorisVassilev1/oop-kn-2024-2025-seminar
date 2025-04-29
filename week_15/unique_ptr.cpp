@@ -8,12 +8,13 @@ class smart_ptr {
 	//smart_ptr(T *ptr) : ptr(ptr) {}
 	template<class ... Args>
 	explicit smart_ptr(Args &&... args)  {
-		ptr = new T(args...);
+		ptr = new T(std::forward<Args>(args)...);
 	}
 	smart_ptr(const smart_ptr<T> &) = delete;
 	smart_ptr(smart_ptr<T> &&other) : ptr(other.ptr) { other.ptr = nullptr; }
 	smart_ptr<T> &operator=(const smart_ptr<T> &) = delete;
 	smart_ptr<T> &operator=(smart_ptr<T> &&other) {
+		delete ptr;
 		ptr		  = other.ptr;
 		other.ptr = nullptr;
 	}
